@@ -1,0 +1,102 @@
+.robot{
+    background-color: $lightblue;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1.5em;
+    border-radius: 10px;
+    padding: 1em .5em;
+    animation: 500ms ease-in fadeIn;
+    max-width: 341.47px;
+    overflow: hidden;
+
+    &__name{
+        font-size: 3em;
+        text-transform: uppercase;
+    };
+    &__type{
+        font-size: 2em;
+    };
+};
+
+.task__list{
+    display: block;
+    &__item{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: .5em 0;
+        margin: 1em 0;
+        border: 2px dotted #eee;
+        height: 90px;
+    };
+
+    &__description{
+        display: block;
+        font-size: 1.25em;
+        text-transform: uppercase;
+        width: 140px;
+        padding: 0 1.5em ;
+        text-align: center;
+    };
+
+    &__timer{
+        padding:  0 1em;
+    };
+    &__button{
+        padding: .5em 0;
+        background-color: #fff;
+        color: $lightblue;
+        outline: none;
+        border: none;
+        text-transform: uppercase;
+        font-family: $acme;
+        border-radius: 5px;
+        &:hover{
+            opacity: .8;
+        };
+    };
+
+    &__loading{
+        width: 48px;
+        height: 48px;
+        background-image: url('/img/loadingspinner.svg');
+        background-size: cover;
+        display: none;
+    };
+    &__completed{
+        width: 48px;
+        height: 48px;
+        background-image: url('/img/greenCheckbox.svg');
+        background-size: cover;
+        display: none;
+    };
+};
+
+.removeTask {
+    animation: 1000ms fadeOut;
+    animation-fill-mode: forwards;//The element will retain the style values that is set by the last keyframe
+    animation-delay: 3s;//Have to place delay after animation, otherwise will read it backwards
+};
+
+@keyframes fadeIn  {
+    from{
+        opacity: 0;
+    };
+    to{
+        opacity: 1;
+    };
+};
+
+@keyframes fadeOut {
+    from{
+        opacity: 1;
+    };
+    to{
+        opacity: 0;
+        visibility: hidden;
+    };
+};
+
